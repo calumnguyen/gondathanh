@@ -4,7 +4,7 @@
   left: 0;
   width: 20rem;
   height: 100%;
-  background-color: #ff5757;
+  background-color: #ff0079;
   box-shadow: 2px 2px 50px rgb(204, 204, 204);
   overflow: scroll;
   transform: translateX(-100%);
@@ -26,7 +26,8 @@
   }
   transition: background 0.5s ease;
   &:hover {
-    background: #f9ff00;
+    background: #f297a7;
+    color: white;
   }
 }
 
@@ -60,7 +61,7 @@
 }
 
 .selected {
-  background: white;
+  background: #fcffe8;
 }
 
 .active-library {

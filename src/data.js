@@ -4,13 +4,13 @@ function chillHop() {
   return [
     {
       id: uuidv4(),
-      name: 'Cái đéo?',
-      artist: '© hamchoi',
+      name: 'Nhăng nhít nhảm nhí',
+      artist: 'Gôn',
       cover:
-        'https://res.cloudinary.com/calumnguyen/image/upload/v1606641218/hamchoi_idkrmg.png',
-      color: ['#FF5757', '#F9FF00'],
+        'https://res.cloudinary.com/calumnguyen/image/upload/v1606717629/gondathanh3_tac9v5.png',
+      color: ['#FF0079', '#f297a7'],
       audio:
-        'https://res.cloudinary.com/calumnguyen/video/upload/v1606642455/Commercial_2v.8_bbxwvm.mp3',
+        'https://res.cloudinary.com/calumnguyen/video/upload/v1606715181/gondathanhep1_ywfhmh.mp3',
       active: true,
     },
     // {
