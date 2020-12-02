@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useAuth0 } from '@auth0/auth0-react';
 import {
   faPlay,
   faAngleLeft,
   faAngleRight,
   faPause,
+  faHeart,
 } from '@fortawesome/free-solid-svg-icons';
 
 const Player = ({
@@ -83,6 +85,8 @@ const Player = ({
     transform: `translateX(${songInfo.animationPercentage}%)`,
   };
 
+  const { isAuthenticated } = useAuth0();
+
   return (
     <div className='player'>
       <div className='time-control'>
@@ -105,6 +109,17 @@ const Player = ({
         <p>{songInfo.duration ? getTime(songInfo.duration) : '0:00'}</p>
       </div>
       <div className='play-control'>
+        <div className='liked-track'>
+          <FontAwesomeIcon
+            onClick={() => skipTrackHandler('skip-forward')}
+            icon={faHeart}
+            size='2x'
+            className={`${isAuthenticated ? 'active-heart' : 'inactive-heart'}`}
+          />
+
+          <p>1000</p>
+        </div>
+
         <FontAwesomeIcon
           onClick={() => skipTrackHandler('skip-back')}
           icon={faAngleLeft}

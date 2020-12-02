@@ -69,6 +69,15 @@
   opacity: 1;
 }
 
+button {
+  border-radius: 25%;
+  border: none;
+  color: white;
+  display: flex;
+
+  right: 0;
+}
+
 @media screen and (max-width: 768px) {
   .library {
     width: 100%;

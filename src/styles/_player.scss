@@ -67,6 +67,25 @@ input[type='range']::-moz-slider-thumb {
   pointer-events: none;
 }
 
+.active-heart {
+  color: #ff0079;
+  cursor: pointer;
+}
+
+.inactive-heart {
+  color: gray;
+  cursor: pointer;
+}
+
+.liked-track {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    padding: 0.5rem;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .time-control {
     width: 90%;
