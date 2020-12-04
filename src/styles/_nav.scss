@@ -3,24 +3,34 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  button {
-    background: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    border: 2px solid rbg(65, 65, 65);
-    padding: 0.5rem;
-    transition: all 0.3s ease;
-    &:hover {
-      background: #ff0079;
-      color: white;
+
+  .text {
+    padding: 0.5em;
+    vertical-align: super;
+  }
+
+  .button {
+    font-size: 2em;
+
+    svg {
+      background: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      border: 2px solid rbg(65, 65, 65);
+      padding: 0.5rem;
+      transition: all 0.3s ease;
+      &:hover {
+        background: #ff0079;
+        color: white;
+      }
     }
   }
 }
 
 @media screen and (max-width: 768px) {
   nav {
-    button {
+    svg {
       z-index: 3;
     }
   }

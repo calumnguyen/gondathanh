@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMusic, faKey } from '@fortawesome/free-solid-svg-icons';
+import { faMusic, faKey, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const Nav = ({ libraryStatus, setLibraryStatus }) => {
@@ -10,22 +10,18 @@ const Nav = ({ libraryStatus, setLibraryStatus }) => {
     <nav>
       <h3> gondathanh </h3>
       <div>
-        <button onClick={() => setLibraryStatus(!libraryStatus)}>
-          <FontAwesomeIcon icon={faMusic} />
-        </button>
+        {isAuthenticated && <span className='text'>{`Hello, ${user.name}`}</span>}
+        <span className='button' title='Show Library'>
+          <FontAwesomeIcon icon={faMusic} onClick={() => setLibraryStatus(!libraryStatus)} />
+        </span>
         {isAuthenticated ? (
-          <button className='no-cursor'>{`Hello, ${user.name}.`}</button>
+          <span className='button' title='Logout'>
+            <FontAwesomeIcon icon={faSignOutAlt} onClick={() => logout()} />
+          </span>
         ) : (
-          ''
-        )}
-        {isAuthenticated ? (
-          <button onClick={() => logout()}>
-            <FontAwesomeIcon icon={faKey} />
-          </button>
-        ) : (
-          <button onClick={() => loginWithRedirect()}>
-            <FontAwesomeIcon icon={faKey} />
-          </button>
+          <span className='button' title='Sign In'>
+            <FontAwesomeIcon icon={faKey} onClick={() => loginWithRedirect()} />
+          </span>
         )}
       </div>
     </nav>

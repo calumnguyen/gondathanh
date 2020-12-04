@@ -4,10 +4,11 @@ import Song from './components/Song';
 import Library from './components/Library';
 import Nav from './components/Nav';
 import './styles/app.scss';
-import data from './data';
+import { getSongs, getLike, saveLike } from './data';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function App() {
-  const [songs, setSongs] = useState(data());
+  const [songs, setSongs] = useState(getSongs());
   const [currentSong, setCurrentSong] = useState(songs[0]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [libraryStatus, setLibraryStatus] = useState(false);
@@ -16,6 +17,7 @@ function App() {
     duration: 0,
     animationPercentage: 0,
   });
+  const { isAuthenticated, user } = useAuth0();
 
   const timeUpdateHandler = (e) => {
     const current = e.target.currentTime;
@@ -39,6 +41,17 @@ function App() {
     if (isPlaying) audioRef.current.play();
   };
 
+  const setLikedHandler = async ({user, songId, liked}) => {
+    // increment or decrement the likeCount in state
+    setCurrentSong({
+      ...currentSong,
+      likeCount: liked ? currentSong.likeCount + 1 : currentSong.likeCount - 1
+    });
+
+    // call setLike to persist the change to the count
+    saveLike({ user, songId, liked })
+  }
+
   return (
     <div className={`App ${libraryStatus ? 'library-active' : ''}`}>
       <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
@@ -51,6 +64,8 @@ function App() {
         audioRef={audioRef}
         currentSong={currentSong}
         setCurrentSong={setCurrentSong}
+        isLiked={isAuthenticated && getLike({user, songId: currentSong.id})}
+        setLiked={isAuthenticated ? (liked) => setLikedHandler({user, songId: currentSong.id, liked}) : null}
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
         timeUpdateHandler={timeUpdateHandler}
