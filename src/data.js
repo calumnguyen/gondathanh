@@ -12,6 +12,7 @@ function chillHop() {
       audio:
         'https://res.cloudinary.com/calumnguyen/video/upload/v1606715181/gondathanhep1_ywfhmh.mp3',
       active: true,
+      likeCount: 999,
     },
     // {
     //   id: uuidv4(),
@@ -22,6 +23,7 @@ function chillHop() {
     //   color: ['#329160', '#DF864D'],
     //   audio: 'https://mp3.chillhop.com/serve.php/?mp3=9917',
     //   active: false,
+    //   likeCount: 2,
     // },
     // {
     //   id: uuidv4(),
@@ -32,6 +34,7 @@ function chillHop() {
     //   color: ['#2B4F8B', '#2F4F5A'],
     //   audio: 'https://mp3.chillhop.com/serve.php/?mp3=10448',
     //   active: false,
+    //   likeCount: 25,
     // },
     // {
     //   id: uuidv4(),
@@ -42,6 +45,7 @@ function chillHop() {
     //   color: ['#329160', '#DF864D'],
     //   audio: 'https://mp3.chillhop.com/serve.php/?mp3=9917',
     //   active: false,
+    //   likeCount: 60,
     // },
     // {
     //   id: uuidv4(),
@@ -52,6 +56,7 @@ function chillHop() {
     //   color: ['#E27482', '#7D3376'],
     //   audio: 'https://mp3.chillhop.com/serve.php/?mp3=10448',
     //   active: false,
+    //   likeCount: 121,
     // },
     // {
     //   id: uuidv4(),
@@ -62,6 +67,7 @@ function chillHop() {
     //   color: ['#329160', '#DF864D'],
     //   audio: 'https://mp3.chillhop.com/serve.php/?mp3=9917',
     //   active: false,
+    //   likeCount: 0,
     // },
   ];
 }

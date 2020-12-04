@@ -117,7 +117,7 @@ const Player = ({
             className={`${isAuthenticated ? 'active-heart' : 'inactive-heart'}`}
           />
 
-          <p>1000</p>
+          <p>{currentSong.likeCount}</p>
         </div>
 
         <FontAwesomeIcon
