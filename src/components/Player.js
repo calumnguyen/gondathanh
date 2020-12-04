@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useAuth0 } from '@auth0/auth0-react';
 import {
   faPlay,
   faAngleLeft,
@@ -18,6 +17,8 @@ const Player = ({
   songs,
   setSongs,
   setSongInfo,
+  isLiked,
+  setLiked,
   songInfo,
   timeUpdateHandler,
   songEndHandler,
@@ -85,7 +86,18 @@ const Player = ({
     transform: `translateX(${songInfo.animationPercentage}%)`,
   };
 
-  const { isAuthenticated } = useAuth0();
+  const LikeButton = ({ isLiked, setLiked}) => {
+    if (!setLiked) {
+      return ''
+    }
+
+    return <FontAwesomeIcon
+      onClick={() => setLiked(!isLiked)}
+      icon={faHeart}
+      size='2x'
+      className={`${isLiked ? 'active-heart' : 'inactive-heart'}`}
+    />
+  }
 
   return (
     <div className='player'>
@@ -110,14 +122,8 @@ const Player = ({
       </div>
       <div className='play-control'>
         <div className='liked-track'>
-          <FontAwesomeIcon
-            onClick={() => skipTrackHandler('skip-forward')}
-            icon={faHeart}
-            size='2x'
-            className={`${isAuthenticated ? 'active-heart' : 'inactive-heart'}`}
-          />
-
-          <p>{currentSong.likeCount}</p>
+          <LikeButton isLiked={isLiked} setLiked={setLiked} />
+          <p>{currentSong.likeCount} likes</p>
         </div>
 
         <FontAwesomeIcon
