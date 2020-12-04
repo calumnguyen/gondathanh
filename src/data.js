@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
-function chillHop() {
-  return [
+export const getSongs = () => (
+  [
     {
       id: uuidv4(),
       name: 'Nhăng nhít nhảm nhí',
@@ -69,7 +69,5 @@ function chillHop() {
     //   active: false,
     //   likeCount: 0,
     // },
-  ];
-}
-
-export default chillHop;
+  ]
+)

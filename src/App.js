@@ -4,10 +4,10 @@ import Song from './components/Song';
 import Library from './components/Library';
 import Nav from './components/Nav';
 import './styles/app.scss';
-import data from './data';
+import { getSongs } from './data';
 
 function App() {
-  const [songs, setSongs] = useState(data());
+  const [songs, setSongs] = useState(getSongs());
   const [currentSong, setCurrentSong] = useState(songs[0]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [libraryStatus, setLibraryStatus] = useState(false);
