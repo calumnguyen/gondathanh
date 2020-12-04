@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMusic, faKey } from '@fortawesome/free-solid-svg-icons';
+import { faMusic, faKey, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const Nav = ({ libraryStatus, setLibraryStatus }) => {
@@ -10,17 +10,13 @@ const Nav = ({ libraryStatus, setLibraryStatus }) => {
     <nav>
       <h3> gondathanh </h3>
       <div>
+        {isAuthenticated && <span className='text'>{`Hello, ${user.name}`}</span>}
         <span className='button' title='Show Library'>
           <FontAwesomeIcon icon={faMusic} onClick={() => setLibraryStatus(!libraryStatus)} />
         </span>
         {isAuthenticated ? (
-          <span className='text'>{`Hello, ${user.name}.`}</span>
-        ) : (
-          ''
-        )}
-        {isAuthenticated ? (
           <span className='button' title='Logout'>
-            <FontAwesomeIcon icon={faKey} onClick={() => logout()} />
+            <FontAwesomeIcon icon={faSignOutAlt} onClick={() => logout()} />
           </span>
         ) : (
           <span className='button' title='Sign In'>
