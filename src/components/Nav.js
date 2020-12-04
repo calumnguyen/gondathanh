@@ -10,22 +10,22 @@ const Nav = ({ libraryStatus, setLibraryStatus }) => {
     <nav>
       <h3> gondathanh </h3>
       <div>
-        <button onClick={() => setLibraryStatus(!libraryStatus)}>
-          <FontAwesomeIcon icon={faMusic} />
-        </button>
+        <span className='button' title='Show Library'>
+          <FontAwesomeIcon icon={faMusic} onClick={() => setLibraryStatus(!libraryStatus)} />
+        </span>
         {isAuthenticated ? (
-          <button className='no-cursor'>{`Hello, ${user.name}.`}</button>
+          <span className='text'>{`Hello, ${user.name}.`}</span>
         ) : (
           ''
         )}
         {isAuthenticated ? (
-          <button onClick={() => logout()}>
-            <FontAwesomeIcon icon={faKey} />
-          </button>
+          <span className='button' title='Logout'>
+            <FontAwesomeIcon icon={faKey} onClick={() => logout()} />
+          </span>
         ) : (
-          <button onClick={() => loginWithRedirect()}>
-            <FontAwesomeIcon icon={faKey} />
-          </button>
+          <span className='button' title='Sign In'>
+            <FontAwesomeIcon icon={faKey} onClick={() => loginWithRedirect()} />
+          </span>
         )}
       </div>
     </nav>
